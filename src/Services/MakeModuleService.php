@@ -1,6 +1,6 @@
 <?php
 
-namespace Tur1\laravelmodules\src\Services;
+namespace Tur1\Laravelmodules\Services;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Pluralizer;

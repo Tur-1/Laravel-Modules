@@ -1,6 +1,6 @@
 <?php
 
-namespace Tur1\laravelmodules\src\Commands;
+namespace Tur1\Laravelmodules\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;

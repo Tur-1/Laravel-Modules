@@ -1,6 +1,6 @@
 <?php
 
-namespace Tur1\laravelmodules\src\Console\Commands;
+namespace Tur1\Laravelmodules\Console\Commands;
 
 use App\Services\Commands\MakeModuleService;
 use Illuminate\Console\Command;

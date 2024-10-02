@@ -20,6 +20,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                \Tur1\Laravelmodules\Console\Commands\MakeModule::class,
+                \Tur1\Laravelmodules\Console\Commands\MakeFilter::class,
+                \Tur1\Laravelmodules\Console\Commands\MakePage::class,
+            ]);
+        }
         JsonResource::withoutWrapping();
 
         $moduleRouteFiles = glob(app_path('Modules/*/Routes/*'));
