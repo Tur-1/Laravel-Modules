@@ -1,8 +1,8 @@
 <?php
 
-namespace Tur1\laravelmodules\Console\Commands;
+namespace Tur1\Laravelmodules\Console\Commands;
 
-use Tur1\laravelmodules\Services\MakeModuleService;
+use Tur1\Laravelmodules\Services\MakeModuleService;
 use Illuminate\Console\Command;
 
 class MakeModule extends Command
