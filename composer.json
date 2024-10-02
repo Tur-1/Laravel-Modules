@@ -8,13 +8,13 @@
             "Tur1\\Laravelmodules\\": "src/"
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Tur1\\Laravelmodules\\Providers\\AppServiceProvider"
-            ]
-        }
-    },
+   "extra": {
+    "laravel": {
+        "providers": [
+            "Tur1\\Laravelmodules\\Providers\\AppServiceProvider"
+        ]
+    }
+},
     "require": {
         "php": "^7.4|^8.0",
        "illuminate/support": "^8.0|^9.0|^10.0|^11.0"
