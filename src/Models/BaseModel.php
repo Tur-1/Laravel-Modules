@@ -1,6 +1,6 @@
 <?php
 
-namespace Tur1\Laravelmodules\Models;
+namespace Tur1\laravelmodules\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;

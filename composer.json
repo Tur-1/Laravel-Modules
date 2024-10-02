@@ -5,13 +5,13 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Tur1\\Laravelmodules\\": "src/"
+            "Tur1\\laravelmodules\\": "src/"
         }
     },
    "extra": {
     "laravel": {
         "providers": [
-            "Tur1\\Laravelmodules\\Providers\\AppServiceProvider"
+            "Tur1\\laravelmodules\\Providers\\AppServiceProvider"
         ]
     }
 },

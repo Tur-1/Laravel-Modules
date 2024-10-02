@@ -1,6 +1,6 @@
 <?php
 
-namespace Tur1\Laravelmodules\Providers;
+namespace Tur1\laravelmodules\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Resources\Json\JsonResource;
