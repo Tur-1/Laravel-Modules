@@ -18,7 +18,6 @@ class {class}Controller extends Controller
 
     public function getAll(Request $request)
     {
-   
        return;
     }
  
@@ -55,7 +54,6 @@ class {class}Controller extends Controller
 
     public function destroy($id)
     { 
-
 
         return response()->json([
             'message' => 'has been deleted successfully',
