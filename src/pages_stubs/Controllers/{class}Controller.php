@@ -5,12 +5,17 @@ namespace {pageNamespace};
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use {pagePath}\Requests\{class}Request;
-use {pagePath}\Requests\{class}Request;
 use {pagePath}\Services\{class}Service;
 
 class {class}Controller extends Controller
 {
-    
+    private ${class}Service;
+
+    public function __construct({class}Service ${class}Service)
+    {
+        $this->{class}Service = ${class}Service;
+    }
+
     public function getAll(Request $request)
     {
    
