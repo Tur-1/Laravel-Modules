@@ -1,7 +1,8 @@
 
 # Laravel Modules Package
 
-This package provides a set of Artisan commands and tools to easily create modules, pages, and filters in your Laravel application. It also allows you to register filters and perform searches on model fields, including searching through relationships.
+`tur1/laravel-modules` is a Laravel package which was created to manage your large Laravel app using modules.
+This package provides a set of Artisan commands and tools to easily create modules, pages, and filters in your Laravel application.
 
 
 Generate your first module using `php artisan module:create Admins`. The following structure will be generated.
@@ -60,7 +61,7 @@ Modules/
 To install the package, run:
 
 ```bash
-composer require tur1/laravelmodules --dev
+composer require tur1/laravelmodules
 ```
 
 ## Artisan Commands
