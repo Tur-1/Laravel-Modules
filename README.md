@@ -96,7 +96,7 @@ Example:
 php artisan page:create Dashboard
 ```
 
-This will generate a `Dashboard` page in the specified module.
+This will generate a `Dashboard` page 
 
 ### Create a Filter
 
