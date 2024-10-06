@@ -35,7 +35,7 @@ class MakeModuleService
 
 
         $modules_stubs = [];
-        $stubsBasePath = base_path('modules_stubs');
+        $stubsBasePath = __DIR__ . '/../modules_stubs';
 
         $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($stubsBasePath));
 
@@ -98,7 +98,7 @@ class MakeModuleService
 
 
             $modules_stubs = [];
-            $stubsBasePath = base_path('pages_stubs');
+            $stubsBasePath = __DIR__ . '/../pages_stubs';
 
             $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($stubsBasePath));
 
