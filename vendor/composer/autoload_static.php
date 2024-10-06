@@ -9,12 +9,12 @@ class ComposerStaticInit1f525e608a229b7ae6b58aa6ebb60062
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
-            'Tur1\\laravelmodules\\' => 20,
+            'Tur1\\Laravelmodules\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Tur1\\laravelmodules\\' => 
+        'Tur1\\Laravelmodules\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

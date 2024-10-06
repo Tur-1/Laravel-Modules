@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Tur1\\laravelmodules\\' => array($baseDir . '/src'),
+    'Tur1\\Laravelmodules\\' => array($baseDir . '/src'),
 );
