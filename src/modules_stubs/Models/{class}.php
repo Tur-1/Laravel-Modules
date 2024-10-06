@@ -3,7 +3,7 @@
 namespace {namespace};
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\BaseModel;
+use Tur1\Laravelmodules\Models\BaseModel;
 use {modulePath}\Observers\{Model}Observer;
 use {modulePath}\Traits\{Model}ScopesTrait;
 use {modulePath}\Traits\{Model}RelationshipsTrait;
