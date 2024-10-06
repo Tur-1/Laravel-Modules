@@ -26,24 +26,24 @@ class {class}Service
         ->getData(true);
     }
 
-    public function create{Model}($validatedRequest)
+    public function create($validatedRequest)
     {
         return $this->{modelVariable}Repository->create{Model}($validatedRequest);
     }
 
-    public function show{Model}($id)
+    public function show($id)
     {
         return {Model}ShowResource::make($this->{modelVariable}Repository->get{Model}($id));
     }
 
-    public function update{Model}($validatedRequest, $id)
+    public function update($validatedRequest, $id)
     {
         ${modelVariable} = $this->{modelVariable}Repository->update{Model}($validatedRequest, $id);
 
         return {Model}ShowResource::make(${modelVariable});
     }
 
-    public function delete{Model}($id)
+    public function delete($id)
     {
         return $this->{modelVariable}Repository->delete{Model}($id);
     }
