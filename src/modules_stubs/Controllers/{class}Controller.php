@@ -32,37 +32,37 @@ class {class}Controller extends Controller
    
        ${routesName} = $this->{modelVariable}Service->getPaginatedList();
 
-        return ${routesName}
+        return ${routesName};
     }
  
-    public function store{Model}(Store{Model}Request $request)
+    public function store(Store{Model}Request $request)
     {
 
         $validatedRequest = $request->validated();
 
-        $this->{modelVariable}Service->create{Model}($validatedRequest);
+        $this->{modelVariable}Service->create($validatedRequest);
 
         return response()->json([
             'message' => '{modelVariable} has been created successfully',
         ]);
     }
 
-    public function show{Model}($id)
+    public function show($id)
     {
        
-        ${modelVariable} = $this->{modelVariable}Service->show{Model}($id);
+        ${modelVariable} = $this->{modelVariable}Service->show($id);
 
         return response()->json([
             '{modelVariable}' => ${modelVariable},
         ]);
     }
 
-    public function update{Model}(Update{Model}Request $request, $id)
+    public function update(Update{Model}Request $request, $id)
     {
       
         $validatedRequest = $request->validated();
 
-        ${modelVariable} = $this->{modelVariable}Service->update{Model}($validatedRequest, $id);
+        ${modelVariable} = $this->{modelVariable}Service->update($validatedRequest, $id);
 
         return response()->json([
             'message' => '{modelVariable} has been updated successfully',
@@ -70,10 +70,10 @@ class {class}Controller extends Controller
         ]);
     }
 
-    public function destroy{Model}($id)
+    public function destroy($id)
     { 
 
-        $this->{modelVariable}Service->delete{Model}($id);
+        $this->{modelVariable}Service->delete($id);
 
         return response()->json([
             'message' => '{modelVariable} has been deleted successfully',

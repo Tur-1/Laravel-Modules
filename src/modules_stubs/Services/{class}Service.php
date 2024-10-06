@@ -1,6 +1,6 @@
 <?php
 
-namespace {pageNamespace};
+namespace {namespace};
 
 use {modulePath}\Repositories\{Model}Repository;
 use {modulePath}\Resources\{Model}ListResource;
