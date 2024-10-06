@@ -33,7 +33,7 @@ class MakePage extends Command
     {
         $moduleName = $this->argument('name');
 
-        $PageResponse =  $this->makeModuleService->makeModule($moduleName, true);
+        $PageResponse =  $this->makeModuleService->makePage($moduleName);
         if ($PageResponse['error']) {
             $this->error($PageResponse['message']);
         } else {
