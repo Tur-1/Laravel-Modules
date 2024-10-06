@@ -17,10 +17,8 @@ class {class} extends BaseModel
         {Model}AttributesTrait,
         {Model}RelationshipsTrait;
 
-    protected $fillable = [
-        {fillableFields}
-    ];
-
+    protected $fillable = []; 
+    
     protected $search = [];
     
     protected static function booted()

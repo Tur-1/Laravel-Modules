@@ -67,7 +67,6 @@ class MakeModuleService
                 'modelVariable' => Str::camel($singleModuleName),
                 'table_name' => Str::snake(Str::plural($moduleName)),
                 'routesName' => Str::snake(Str::plural($moduleName)),
-                'fillableFields' => $fields ? $fillableString : '',
                 'database_file_name' => date('Y_m_d_His') . '_' . Str::snake(Str::plural($moduleName)),
             ];
             $targetFilePath = $targetPath . DIRECTORY_SEPARATOR . str_replace(
@@ -131,7 +130,6 @@ class MakeModuleService
                     'modelVariable' => Str::camel($singleModuleName),
                     'table_name' => Str::snake(Str::plural($moduleName)),
                     'routesName' => Str::snake(Str::plural($moduleName)),
-                    'fillableFields' => $fields ? $fillableString : '',
                     'database_file_name' => date('Y_m_d_His') . '_' . Str::snake(Str::plural($moduleName)),
                 ];
                 $targetFilePath = $targetPath . DIRECTORY_SEPARATOR . str_replace(
