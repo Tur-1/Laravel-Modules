@@ -3,6 +3,7 @@
 namespace Tur1\Laravelmodules\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class MakeModuleMigration extends Command
 {
