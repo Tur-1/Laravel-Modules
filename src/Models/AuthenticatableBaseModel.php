@@ -3,6 +3,7 @@
 namespace Tur1\Laravelmodules\Models;
 
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Database\Eloquent\Builder;
 
 class AuthenticatableBaseModel extends User
 {
