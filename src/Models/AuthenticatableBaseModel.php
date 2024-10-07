@@ -3,7 +3,6 @@
 namespace Tur1\Laravelmodules\Models;
 
 use Illuminate\Foundation\Auth\User;
-use Illuminate\Notifications\Notifiable;
 
 class AuthenticatableBaseModel extends User
 {
