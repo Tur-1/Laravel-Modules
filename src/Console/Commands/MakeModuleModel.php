@@ -5,14 +5,18 @@ namespace Tur1\Laravelmodules\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class MakeFilter extends Command
+class MakeModuleModel extends Command
 {
-    protected $signature = 'module:filter {name} {--module=}';
-    protected $description = 'Create a new filter class for a given module';
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'module:model {name} {--module=}';
+    protected $description = 'Create a model for a specific module';
 
     public function handle()
     {
-
         $name = $this->argument('name');
         $module = $this->option('module');
 
@@ -21,8 +25,9 @@ class MakeFilter extends Command
             return 1;
         }
 
-        $stubPath = __DIR__ . '/../stubs/filter.stub';
-        $targetPath = base_path("app/Modules/{$module}/Filters/{$name}.php");
+        $stubPath = __DIR__ . '/../stubs/baseModel.stub';
+
+        $targetPath = base_path("app/Modules/{$module}/Models/{$name}.php");
 
         if (!File::exists($stubPath)) {
             $this->error("Stub file does not exist at: {$stubPath}");
@@ -30,7 +35,7 @@ class MakeFilter extends Command
         }
 
         $stubContent = File::get($stubPath);
-        $namespace = "App\\Modules\\{$module}\\Filters";
+        $namespace = "App\\Modules\\{$module}\\Models";
         $stubContent = str_replace(
             ['{{ namespace }}', '{{ class }}'],
             [$namespace, $name],
@@ -44,7 +49,7 @@ class MakeFilter extends Command
 
         File::put($targetPath, $stubContent);
 
-        $this->info("Filter class {$name} created successfully in app/Modules/{$module}/Filters.");
+        $this->info("model class {$name} created successfully in app/Modules/{$module}/Models.");
 
         return 0;
     }

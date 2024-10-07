@@ -26,7 +26,15 @@ class AppServiceProvider extends ServiceProvider
                 \Tur1\Laravelmodules\Console\Commands\MakeModule::class,
                 \Tur1\Laravelmodules\Console\Commands\MakeFilter::class,
                 \Tur1\Laravelmodules\Console\Commands\MakePage::class,
-                \Tur1\Laravelmodules\Console\Commands\MakeModuleMigration::class
+                \Tur1\Laravelmodules\Console\Commands\MakeModuleMigration::class,
+                \Tur1\Laravelmodules\Console\Commands\MakeModuleModel::class,
+                \Tur1\Laravelmodules\Console\Commands\MakeModuleRequest::class,
+                \Tur1\Laravelmodules\Console\Commands\MakeModuleResource::class,
+                \Tur1\Laravelmodules\Console\Commands\MakeModuleController::class,
+                \Tur1\Laravelmodules\Console\Commands\MakeMiddleware::class,
+
+
+
             ]);
         }
         JsonResource::withoutWrapping();

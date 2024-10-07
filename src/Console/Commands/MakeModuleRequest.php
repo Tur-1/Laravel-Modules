@@ -5,9 +5,9 @@ namespace Tur1\Laravelmodules\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class MakeFilter extends Command
+class MakeModuleRequest extends Command
 {
-    protected $signature = 'module:filter {name} {--module=}';
+    protected $signature = 'module:request {name} {--module=}';
     protected $description = 'Create a new filter class for a given module';
 
     public function handle()
@@ -21,8 +21,8 @@ class MakeFilter extends Command
             return 1;
         }
 
-        $stubPath = __DIR__ . '/../stubs/filter.stub';
-        $targetPath = base_path("app/Modules/{$module}/Filters/{$name}.php");
+        $stubPath = __DIR__ . '/../stubs/request.stub';
+        $targetPath = base_path("app/Modules/{$module}/Requests/{$name}.php");
 
         if (!File::exists($stubPath)) {
             $this->error("Stub file does not exist at: {$stubPath}");
@@ -30,7 +30,7 @@ class MakeFilter extends Command
         }
 
         $stubContent = File::get($stubPath);
-        $namespace = "App\\Modules\\{$module}\\Filters";
+        $namespace = "App\\Modules\\{$module}\\Requests";
         $stubContent = str_replace(
             ['{{ namespace }}', '{{ class }}'],
             [$namespace, $name],
@@ -44,7 +44,7 @@ class MakeFilter extends Command
 
         File::put($targetPath, $stubContent);
 
-        $this->info("Filter class {$name} created successfully in app/Modules/{$module}/Filters.");
+        $this->info("Request class {$name} created successfully in app/Modules/{$module}/Filters.");
 
         return 0;
     }

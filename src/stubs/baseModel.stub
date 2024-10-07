@@ -1,0 +1,25 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Tur1\Laravelmodules\Models\BaseModel;
+
+class {{ class }} extends BaseModel
+{
+      use HasFactory;
+
+    protected $fillable = []; 
+    
+    protected $search = [];
+    
+    protected static function booted()
+    {
+        parent::booted();
+    }
+
+    public static function filters()
+    {
+        return [];
+    }
+}

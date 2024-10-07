@@ -21,8 +21,8 @@ abstract class BaseModel extends Model
 
     protected static function booted()
     {
-        foreach (static::filters() as $filterClass) {
-            static::addGlobalScope(new $filterClass);
+        foreach (static::filters() as $name) {
+            static::addGlobalScope(new $name);
         }
         static::addGlobalScope('search', function (Builder $builder) {
             $builder->search();
