@@ -14,7 +14,8 @@ abstract class BaseModel extends Model
      * @var array
      */
     protected $search = [];
-    public static function filters()
+
+    protected static function filters()
     {
         return [];
     }
