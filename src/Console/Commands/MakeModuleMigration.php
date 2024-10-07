@@ -2,38 +2,48 @@
 
 namespace Tur1\Laravelmodules\Console\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
+use Symfony\Component\Console\Input\InputOption;
+use Illuminate\Database\Migrations\MigrationCreator;
+use Illuminate\Support\Composer;
 
-class MakeModuleMigration extends Command
+class MakeModuleMigration extends MigrateMakeCommand
 {
-    protected $signature = 'make:migration {name} {--module=}';
+    protected $name = 'make:migration';  // Override the command name to replace the default one
 
-    protected $description = 'Create a migration for a specific module';
+    protected $description = 'Create a new migration file with optional module support';
 
-    public function handle()
+    protected $module;
+
+    public function __construct(MigrationCreator $creator, Composer $composer)
     {
-        // Get the migration name and module from the input
-        $name = $this->argument('name');
-        $module = $this->option('module');
+        parent::__construct($creator, $composer);
+    }
 
-        if ($module) {
+    protected function getOptions()
+    {
+        // Add the --module option in addition to the default options
+        return array_merge(parent::getOptions(), [
+            ['module', null, InputOption::VALUE_OPTIONAL, 'The name of the module to place the migration in.'],
+        ]);
+    }
+
+    protected function getMigrationPath()
+    {
+        // Check if the --module option was provided
+        if ($this->option('module')) {
+            $module = $this->option('module');
             $modulePath = base_path("app/Modules/{$module}/Database/migrations");
 
+            // Create the module's migrations directory if it doesn't exist
             if (!is_dir($modulePath)) {
-                $this->error("Module '{$module}' does not exist or the migration path is invalid.");
-                return;
+                mkdir($modulePath, 0755, true);
             }
 
-            $command = "php artisan make:migration {$name} --path=app/Modules/{$module}/Database/migrations";
-            system($command);
-
-            $this->info("Migration created in module: {$module}.");
-        } else {
-            $command = "php artisan make:migration {$name}";
-            system($command);
-
-            $this->info("Migration created in the default migrations directory.");
+            return $modulePath;
         }
+
+        // If no module is provided, use the default migration path
+        return parent::getMigrationPath();
     }
 }
