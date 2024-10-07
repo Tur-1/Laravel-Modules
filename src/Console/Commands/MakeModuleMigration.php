@@ -13,28 +13,27 @@ class MakeModuleMigration extends Command
 
     public function handle()
     {
+        // Get the migration name and module from the input
         $name = $this->argument('name');
         $module = $this->option('module');
 
-        $arguments = [
-            'name' => $name,
-        ];
-
-        // Check if the module option is provided
         if ($module) {
             $modulePath = base_path("app/Modules/{$module}/Database/migrations");
 
-            // Validate if the module path exists
             if (!is_dir($modulePath)) {
                 $this->error("Module '{$module}' does not exist or the migration path is invalid.");
                 return;
             }
 
-            // Add the path to the arguments if the module is specified
-            $arguments['--path'] = "app/Modules/{$module}/Database/migrations";
-        }
+            $command = "php artisan make:migration {$name} --path=app/Modules/{$module}/Database/migrations";
+            system($command);
 
-        // Run the Artisan command with or without the path
-        Artisan::call('make:migration', $arguments);
+            $this->info("Migration created in module: {$module}.");
+        } else {
+            $command = "php artisan make:migration {$name}";
+            system($command);
+
+            $this->info("Migration created in the default migrations directory.");
+        }
     }
 }
