@@ -21,7 +21,7 @@ class MakeModuleController extends Command
         $module = $this->option('module');
 
         try {
-            $namespace = GenerateModuleFile::generate('controller.api', $module, $name);
+            $namespace = GenerateModuleFile::generate('controller.api', $module, $name, 'Controllers');
         } catch (\Exception $ex) {
             $this->error($ex->getMessage());
             return 1;

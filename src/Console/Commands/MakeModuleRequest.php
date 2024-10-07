@@ -4,6 +4,7 @@ namespace Tur1\Laravelmodules\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Tur1\Laravelmodules\Services\GenerateModuleFile;
 
 class MakeModuleRequest extends Command
 {
@@ -16,36 +17,15 @@ class MakeModuleRequest extends Command
         $name = $this->argument('name');
         $module = $this->option('module');
 
-        if (empty($module)) {
-            $this->error("The --module option (module) is required.");
+
+        try {
+            $namespace = GenerateModuleFile::generate('request', $module, $name, 'Requests');
+        } catch (\Exception $ex) {
+            $this->error($ex->getMessage());
             return 1;
         }
 
-        $stubPath = __DIR__ . '/../stubs/request.stub';
-        $targetPath = base_path("app/Modules/{$module}/Requests/{$name}.php");
-
-        if (!File::exists($stubPath)) {
-            $this->error("Stub file does not exist at: {$stubPath}");
-            return 1;
-        }
-
-        $stubContent = File::get($stubPath);
-        $namespace = "App\\Modules\\{$module}\\Requests";
-        $stubContent = str_replace(
-            ['{{ namespace }}', '{{ class }}'],
-            [$namespace, $name],
-            $stubContent
-        );
-
-        $directory = dirname($targetPath);
-        if (!File::exists($directory)) {
-            File::makeDirectory($directory, 0755, true);
-        }
-
-        File::put($targetPath, $stubContent);
-
-        $this->info("Request class {$name} created successfully in app/Modules/{$module}/Filters.");
-
+        $this->info("{$name} created successfully in $namespace");
         return 0;
     }
 }
