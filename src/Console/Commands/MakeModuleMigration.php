@@ -20,12 +20,16 @@ class MakeModuleMigration extends Command
             $modulePath = base_path("app/Modules/{$module}/Database/migrations");
 
             if (!is_dir($modulePath)) {
-                $this->error("Module '{$module}' does not exist");
+                $this->error("Module '{$module}' does not exist or the migration path is invalid.");
                 return;
             }
             Artisan::call('make:migration', [
                 'name' => $name,
                 '--path' => "app/Modules/{$module}/Database/migrations",
+            ]);
+        } else {
+            Artisan::call('make:migration', [
+                'name' => $name,
             ]);
         }
     }
