@@ -1,6 +1,6 @@
 <?php
 
-namespace Tur1\Laravelmodules\modules_stubs\Enums;
+namespace {namespace};
 
 enum {class}Enum: string
 {
