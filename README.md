@@ -103,13 +103,13 @@ This will generate a `Dashboard` page
 To create a new filter within a module, use:
 
 ```bash
-php artisan filter:create {filter-name} --module={module-name}
+php artisan filter:create {filter-name} --m={module-name}
 ```
 
 Example:
 
 ```bash
-php artisan filter:create Filter --module=Users
+php artisan filter:create Filter --m=Users
 ```
 
 This will create a `Filter` class in the `app/Modules/Users/Filters` directory.

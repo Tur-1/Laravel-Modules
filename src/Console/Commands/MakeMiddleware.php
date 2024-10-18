@@ -8,14 +8,14 @@ use Tur1\Laravelmodules\Services\GenerateModuleFile;
 
 class MakeMiddleware extends Command
 {
-    protected $signature = 'module:middleware {name} {--module=}';
+    protected $signature = 'module:middleware {name} {--m=}';
     protected $description = 'Create a new middleware class for a given module';
 
     public function handle()
     {
 
         $name = $this->argument('name');
-        $module = $this->option('module');
+        $module = $this->option('m');
 
         try {
             $namespace = GenerateModuleFile::generate('middleware', $module, $name, 'Middleware');

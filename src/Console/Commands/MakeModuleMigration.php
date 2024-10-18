@@ -12,13 +12,13 @@ class MakeModuleMigration extends Command
      *
      * @var string
      */
-    protected $signature = 'module:migration {name} {--module=}';
+    protected $signature = 'module:migration {name} {--m=}';
     protected $description = 'Create a migration for a specific module';
 
     public function handle()
     {
         $name = $this->argument('name');
-        $module = $this->option('module');
+        $module = $this->option('m');
 
         if ($module) {
             $modulePath = base_path("app/Modules/{$module}/Database/migrations");
@@ -37,7 +37,7 @@ class MakeModuleMigration extends Command
 
             $this->info("Migration created successfully in the {$module} module.");
         } else {
-            $this->error('--module=  option is required.');
+            $this->error('--m=  option is required.');
         }
     }
 }

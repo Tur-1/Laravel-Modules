@@ -13,13 +13,13 @@ class MakeModuleResource extends Command
      *
      * @var string
      */
-    protected $signature = 'module:resource {name} {--module=}';
+    protected $signature = 'module:resource {name} {--m=}';
     protected $description = 'Create a resource for a specific module';
 
     public function handle()
     {
         $name = $this->argument('name');
-        $module = $this->option('module');
+        $module = $this->option('m');
 
 
         try {

@@ -12,13 +12,13 @@ class MakeModuleController extends Command
      *
      * @var string
      */
-    protected $signature = 'module:controller {name} {--module=}';
+    protected $signature = 'module:controller {name} {--m=}';
     protected $description = 'Create a controller for a specific module';
 
     public function handle()
     {
         $name = $this->argument('name');
-        $module = $this->option('module');
+        $module = $this->option('m');
 
         try {
             $namespace = GenerateModuleFile::generate('controller.api', $module, $name, 'Controllers');

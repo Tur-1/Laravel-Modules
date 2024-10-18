@@ -32,8 +32,7 @@ class AppServiceProvider extends ServiceProvider
                 \Tur1\Laravelmodules\Console\Commands\MakeModuleResource::class,
                 \Tur1\Laravelmodules\Console\Commands\MakeModuleController::class,
                 \Tur1\Laravelmodules\Console\Commands\MakeMiddleware::class,
-
-
+                \Tur1\Laravelmodules\Console\Commands\MakeAction::class
 
             ]);
         }

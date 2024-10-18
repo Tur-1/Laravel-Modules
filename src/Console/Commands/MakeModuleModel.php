@@ -13,13 +13,13 @@ class MakeModuleModel extends Command
      *
      * @var string
      */
-    protected $signature = 'module:model {name} {--module=}';
+    protected $signature = 'module:model {name} {--m=}';
     protected $description = 'Create a model for a specific module';
 
     public function handle()
     {
         $name = $this->argument('name');
-        $module = $this->option('module');
+        $module = $this->option('m');
 
         try {
             $namespace = GenerateModuleFile::generate('baseModel', $module, $name, 'Models');

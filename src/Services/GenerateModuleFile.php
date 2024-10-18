@@ -10,7 +10,7 @@ class GenerateModuleFile
     {
 
         if (empty($moduleName)) {
-            throw new \Exception("The --module option (module) is required.", 1);
+            throw new \Exception("The --m option (module name) is required.", 1);
         }
 
         $stubPath = __DIR__ . '/../stubs/' . $stubFileName . '.stub';

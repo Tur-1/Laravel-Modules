@@ -8,14 +8,14 @@ use Tur1\Laravelmodules\Services\GenerateModuleFile;
 
 class MakeFilter extends Command
 {
-    protected $signature = 'module:filter {name} {--module=}';
+    protected $signature = 'module:filter {name} {--m=}';
     protected $description = 'Create a new filter class for a given module';
 
     public function handle()
     {
 
         $name = $this->argument('name');
-        $module = $this->option('module');
+        $module = $this->option('m');
 
         try {
             $namespace = GenerateModuleFile::generate('filter', $module, $name, 'Filters');

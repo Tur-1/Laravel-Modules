@@ -3,12 +3,11 @@
 namespace Tur1\Laravelmodules\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use Tur1\Laravelmodules\Services\GenerateModuleFile;
 
-class MakeModuleRequest extends Command
+class MakeAction extends Command
 {
-    protected $signature = 'module:request {name} {--m=}';
+    protected $signature = 'module:action {name} {--m=}';
     protected $description = 'Create a new filter class for a given module';
 
     public function handle()
@@ -17,9 +16,8 @@ class MakeModuleRequest extends Command
         $name = $this->argument('name');
         $module = $this->option('m');
 
-
         try {
-            $namespace = GenerateModuleFile::generate('request', $module, $name, 'Requests');
+            $namespace = GenerateModuleFile::generate('controller.invokable', $module, $name, 'Actions');
         } catch (\Exception $ex) {
             $this->error($ex->getMessage());
             return 1;
