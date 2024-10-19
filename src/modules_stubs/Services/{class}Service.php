@@ -19,7 +19,7 @@ class {class}Service
     {
         return {Model}ListResource::collection($this->{modelVariable}Repository->getAll());
     }
-    public function getPaginatedList($records = 15)
+    public function getPaginatedList($records = 16)
     {
         return {Model}ListResource::collection($this->{modelVariable}Repository->getPaginatedList($records))
         ->response()

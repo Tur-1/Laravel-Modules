@@ -16,7 +16,7 @@ class {class}Repository
     {
         return $this->{modelVariable}->get();
     }
-    public function getPaginatedList($records = 15)
+    public function getPaginatedList($records = 16)
     {
         return $this->{modelVariable}->latest('id')->simplePaginate($records);
     }
