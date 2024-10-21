@@ -14,11 +14,17 @@ class {class}Repository
     }
     public function getAll()
     {
-        return $this->{modelVariable}->get();
+        return $this->{modelVariable}->query()
+        ->withFilters()
+        ->latest('id')
+        ->get();
     }
     public function getPaginatedList($records = 16)
     {
-        return $this->{modelVariable}->latest('id')->simplePaginate($records);
+        return $this->{modelVariable}->query()
+        ->withFilters()
+        ->latest('id')
+        ->paginate($records);
     }
     public function create{Model}($validatedRequest)
     {
@@ -26,7 +32,7 @@ class {class}Repository
     }
     public function get{Model}($id)
     {
-        $this->{modelVariable} = $this->{modelVariable}::withoutGlobalScopes()->findOrFail($id);
+        $this->{modelVariable} = $this->{modelVariable}::query()->findOrFail($id);
         
         return $this->{modelVariable};
     }

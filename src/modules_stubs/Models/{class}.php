@@ -22,8 +22,7 @@ class {class} extends BaseModel
     protected $search = [];
     
     protected static function booted()
-    {
-        parent::booted();
+    { 
         static::observe({class}Observer::class);
     }
 
