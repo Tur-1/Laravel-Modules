@@ -26,7 +26,7 @@ class {class}Repository
     }
     public function get{Model}($id)
     {
-        $this->{modelVariable} = $this->{modelVariable}->query()->findOrFail($id);
+        $this->{modelVariable} = $this->{modelVariable}::withoutGlobalScopes()->findOrFail($id);
         
         return $this->{modelVariable};
     }
