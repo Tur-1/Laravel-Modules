@@ -119,24 +119,63 @@ This will create a `StatusFilter` class in the `app/Modules/Users/Filters` direc
 You can register filters for a model by defining a `filters()` method in your model. For example:
 
 ```php
-public static function filters()
+
+class User extends Model
 {
-    return [
-        StatusFilter::class,
-    ];
+    /**
+     * Register filters for the User model.
+     *
+     * @return array
+     */
+    public static function filters()
+    {
+        return [
+             StatusFilter::class,
+        ];
+    }
 }
 ```
+## Applying Filters
 
-This allows you to apply filters on your model's query, making it easier to build dynamic filtering logic.
+To apply filters to a query, use the `withFilters()` method:
 
+```php
+User::withFilters()->get();
+```
+
+ 
 ## Searchable Fields
 
-To enable search functionality in your model, define a `$search` property. This property should be an array of field names that can be searched. You can also include related fields by specifying the relationship and field name in dot notation (e.g., `roles.name`).
+Define a `$search` property in your model to enable search functionality. Use an array of field names, including related fields with dot notation (e.g., `roles.name`).
 
 Example:
 
 ```php
-protected $search = ['name', 'email', 'roles.name'];
+
+class User extends Model
+{
+
+  protected $search = ['name', 'email', 'roles.name'];
+
+
+   public function roles()
+   {
+        return $this->hasMany(Role::class);
+   }
+
+    /**
+     * Register filters for the User model.
+     *
+     * @return array
+     */
+    public static function filters()
+    {
+        return [
+             StatusFilter::class,
+        ];
+    }
+
+}
 ```
 
 
