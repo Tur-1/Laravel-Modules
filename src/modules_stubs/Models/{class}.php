@@ -3,14 +3,14 @@
 namespace {namespace};
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Tur1\Laravelmodules\Models\BaseModel;
+use Tur1\modules\Models\Model;
 use {modulePath}\Observers\{Model}Observer;
 use {modulePath}\Traits\{Model}ScopesTrait;
 use {modulePath}\Traits\{Model}RelationshipsTrait;
 use {modulePath}\Traits\{Model}AttributesTrait;
-use {modulePath}\Database\factories\{Model}Factory;
+use {modulePath}\Filters\{class}Filter;
 
-class {class} extends BaseModel
+class {class} extends Model
 {
     use HasFactory,
         {Model}ScopesTrait,
@@ -28,15 +28,8 @@ class {class} extends BaseModel
 
     public static function filters()
     {
-        return [];
-    }
-      /**
-     * Create a new factory instance for the model.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    protected static function newFactory()
-    {
-        return {Model}Factory::new();
+        return [
+            {class}Filter::class
+        ];
     }
 }

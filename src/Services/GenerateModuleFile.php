@@ -1,6 +1,6 @@
 <?php
 
-namespace Tur1\Laravelmodules\Services;
+namespace Tur1\modules\Services;
 
 use Illuminate\Support\Facades\File;
 

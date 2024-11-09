@@ -1,6 +1,6 @@
 <?php
 
-namespace Tur1\Laravelmodules\Console\Commands;
+namespace Tur1\modules\Console\Commands;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Console\Command;

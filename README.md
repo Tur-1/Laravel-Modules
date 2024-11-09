@@ -61,7 +61,7 @@ Modules/
 To install the package, run:
 
 ```bash
-composer require tur1/laravelmodules
+composer require tur1/modules
 ```
 
 ## Artisan Commands

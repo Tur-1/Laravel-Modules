@@ -1,23 +1,21 @@
 {
-  "name": "tur1/laravelmodules",
+  "name": "tur1/modules",
   "description": "A Laravel package for creating modules and pages",
   "type": "library",
-  "license": "MIT",
+  "version": "1.0.0",
   "autoload": {
     "psr-4": {
-      "Tur1\\Laravelmodules\\": "src/"
+      "Tur1\\modules\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Tur1\\Laravelmodules\\Providers\\AppServiceProvider"
+        "Tur1\\modules\\Providers\\ModulesServiceProvider"
       ]
     }
   },
   "require": {
-    "php": "^7.4|^8.0",
-    "illuminate/support": "^8.0|^9.0|^10.0|^11.0"
-  },
-  "minimum-stability": "stable"
+    "php": "^8.0"
+  }
 }

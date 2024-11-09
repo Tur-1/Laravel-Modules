@@ -1,13 +1,13 @@
 <?php
 namespace {namespace};
 
-use {modulePath}\Models\{Model};
+use {modulePath}\Database\factories\{Model}Factory;
 use Illuminate\Database\Seeder;
  
 class {Model}Seeder extends Seeder
 {
     public function run()
     {
-        {Model}::factory(60)->create();
+        {Model}Factory::new()->count(30)->create();
     }
 }

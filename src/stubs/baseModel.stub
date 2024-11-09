@@ -3,7 +3,7 @@
 namespace {{ namespace }};
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Tur1\Laravelmodules\Models\BaseModel;
+use Tur1\modules\Models\BaseModel;
 
 class {{ class }} extends BaseModel
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tur1\Laravelmodules\Models;
+namespace Tur1\modules\Models;
 
 trait BaseModelTrait
 {

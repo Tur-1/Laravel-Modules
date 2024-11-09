@@ -2,49 +2,67 @@
 
 namespace {namespace};
 
-use {modulePath}\Repositories\{Model}Repository;
 use {modulePath}\Resources\{Model}ListResource;
 use {modulePath}\Resources\{Model}ShowResource;
+use {modulePath}\Exceptions\{class}Exception;
+use {modulePath}\Models\{Model};
 
 class {class}Service
 {
-    private ${modelVariable}Repository;
+    private {Model} ${modelVariable};
 
-    public function __construct({Model}Repository ${modelVariable}Repository)
+    public function __construct({Model} ${modelVariable})
     {
-        $this->{modelVariable}Repository = ${modelVariable}Repository;
+        $this->{modelVariable} = ${modelVariable};
     }
 
     public function getAll()
     {
-        return {Model}ListResource::collection($this->{modelVariable}Repository->getAll());
-    }
-    public function getPaginatedList($records = 16)
-    {
-        return {Model}ListResource::collection($this->{modelVariable}Repository->getPaginatedList($records))
-        ->response()
-        ->getData(true);
-    }
+        ${routesName} = $this->{modelVariable}->query()
+            ->withFilters()
+            ->latest('id')
+            ->get();
 
-    public function create($validatedRequest)
-    {
-        return $this->{modelVariable}Repository->create{Model}($validatedRequest);
+        return {Model}ListResource::collection(${routesName});
     }
 
-    public function show($id)
+    public function getPaginatedList($perPage = 16)
     {
-        return {Model}ShowResource::make($this->{modelVariable}Repository->get{Model}($id));
+        ${routesName} = $this->{modelVariable}->query()
+            ->withFilters()
+            ->latest('id')
+            ->paginate($perPage);
+
+        return {Model}ListResource::collection(${routesName})
+            ->response()
+            ->getData(true);
     }
 
-    public function update($validatedRequest, $id)
+    public function create{Model}($validatedRequest)
     {
-        ${modelVariable} = $this->{modelVariable}Repository->update{Model}($validatedRequest, $id);
+        return $this->{modelVariable}->create($validatedRequest);
+    }
 
+    public function get{Model}($id)
+    {
+        ${modelVariable} = $this->{modelVariable}::query()->find($id);
+
+        if (!${modelVariable}) {
+            throw {class}Exception::notFound();
+        }
         return {Model}ShowResource::make(${modelVariable});
     }
 
-    public function delete($id)
+    public function update{Model}($validatedRequest, $id)
     {
-        return $this->{modelVariable}Repository->delete{Model}($id);
+        ${modelVariable} = $this->get{Model}($id);
+        ${modelVariable}->update($validatedRequest);
+       
+        return {Model}ShowResource::make(${modelVariable});
+    }
+
+    public function delete{Model}($id)
+    {
+        return $this->{modelVariable}->where('id', $id)->delete();
     }
 }

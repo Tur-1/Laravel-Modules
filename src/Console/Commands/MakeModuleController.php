@@ -1,9 +1,9 @@
 <?php
 
-namespace Tur1\Laravelmodules\Console\Commands;
+namespace Tur1\modules\Console\Commands;
 
 use Illuminate\Console\Command;
-use Tur1\Laravelmodules\Services\GenerateModuleFile;
+use Tur1\modules\Services\GenerateModuleFile;
 
 class MakeModuleController extends Command
 {
