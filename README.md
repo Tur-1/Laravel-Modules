@@ -18,10 +18,7 @@ Modules/
     │   ├── migrations/
     │   │   └── 2024_09_16_xxxxxxx_admins_table.php
     │   └── seeders/
-    │       └── AdminSeeder.php
-    ├── Enums/
-    │   ├── AdminGenderEnum.php
-    │   └── AdminStatusEnum.php
+    │       └── AdminSeeder.php 
     ├── Events/
     │   ├── AdminCreatedEvent.php
     │   ├── AdminDeletedEvent.php
@@ -38,9 +35,7 @@ Modules/
     ├── Observers/
     │   └── AdminObserver.php
     ├── Policies/
-    │   └── AdminPolicy.php
-    ├── Repositories/
-    │   └── AdminRepository.php
+    │   └── AdminPolicy.php 
     ├── Requests/
     │   ├── StoreAdminRequest.php
     │   └── UpdateAdminRequest.php
@@ -71,12 +66,6 @@ composer require tur1/modules
 To create a new module, use the following command:
 
 ```bash
-php artisan module:create {name}
-```
-
-Example:
-
-```bash
 php artisan module:create Users
 ```
 
@@ -85,12 +74,6 @@ This will generate a `Users` module in the `app/Modules` directory.
 ### Create a Page
 
 To create a new page within a module, use:
-
-```bash
-php artisan page:create {name}
-```
-
-Example:
 
 ```bash
 php artisan page:create Dashboard
