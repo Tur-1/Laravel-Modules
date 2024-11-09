@@ -103,16 +103,16 @@ This will generate a `Dashboard` page
 To create a new filter within a module, use:
 
 ```bash
-php artisan filter:create {filter-name} --m={module-name}
+php artisan module:filter {name} --m={module-name}
 ```
 
 Example:
 
 ```bash
-php artisan filter:create Filter --m=Users
+php artisan module:filter StatusFilter --m=Users
 ```
 
-This will create a `Filter` class in the `app/Modules/Users/Filters` directory.
+This will create a `StatusFilter` class in the `app/Modules/Users/Filters` directory.
 
 ## Registering Filters in a Model
 
@@ -122,7 +122,7 @@ You can register filters for a model by defining a `filters()` method in your mo
 public static function filters()
 {
     return [
-        Filter::class,
+        StatusFilter::class,
     ];
 }
 ```
