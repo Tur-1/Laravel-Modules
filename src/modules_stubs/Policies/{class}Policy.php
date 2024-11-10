@@ -13,15 +13,15 @@ class {class}Policy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, {Model} ${modelVariable})
+    public function view(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -29,38 +29,39 @@ class {class}Policy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, {Model} ${modelVariable})
+    public function update(User $user)
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, {Model} ${modelVariable})
+    public function delete(User $user)
     {
-        //
+        
+        return true;
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, {Model} ${modelVariable})
+    public function restore(User $user)
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, {Model} ${modelVariable})
+    public function forceDelete(User $user)
     {
-        //
+        return true;
     }
 }
